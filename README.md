@@ -105,20 +105,13 @@ To run it as a regular app (icon, `/Applications`, no terminal):
 ./package.sh --install   # builds dist/DesktopFly.app, copies it to /Applications, launches it
 ```
 
-Or grab `DesktopFly-<version>.zip` from the
-[Releases](https://github.com/GhostInTheBus/desktop-fly/releases) page of this fork.
-The bundle is ad-hoc signed, not notarized, so on first launch of a downloaded
-copy macOS will say it's damaged or from an unidentified developer. Clear the
-quarantine flag and it opens normally:
+The bundle is ad-hoc signed by the linker, not notarized. If you share the
+`.app` with someone, their first launch is refused until they clear the
+quarantine flag (or choose "Open Anyway" in Privacy & Security):
 
 ```sh
 xattr -dr com.apple.quarantine /Applications/DesktopFly.app
 ```
-
-The packaging script and bundle are this fork's only addition. The fly — the
-connectome extraction, neural model, body, everything you actually see — is
-the work of [Denis Shiryaev](https://github.com/DenisSergeevitch) in the
-[upstream repo](https://github.com/DenisSergeevitch/desktop-fly).
 
 ### Windows
 
